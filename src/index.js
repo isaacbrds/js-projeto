@@ -1,20 +1,14 @@
 import Koa from 'koa'
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
+
 import bodyParser from 'koa-bodyparser'
-import Router from '@koa/router'
+import { router } from './routes'
 
 const app = new Koa()
-const router = new Router()
-
-router.get('/', ctx => {
-  ctx.body = 'hello world!!!!'
-})
-
-router.get('/users', ctx => {
-  ctx.body = 'hello users!!!!'
-})
 
 app.use(bodyParser())
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-app.listen(3000)
+app.listen(process.env.SERVER_PORT)

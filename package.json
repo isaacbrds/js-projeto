@@ -15,7 +15,7 @@
     "format": "yarn fix:format 'src/**/*.(js|ts|md|json)'",
     "lint": "yarn fix:lint src/**/*.{js,ts,md,json}",
     "build": "babel src --extensions \".js\" --ignore \"*.spec.js, *.test.js\" --out-dir dist --copy-files",
-    "prebuild": "rm -rf ./dist",
+    "prebuild": "rm -Rf ./dist",
     "dev": "nodemon --exec babel-node src/index.js"
   },
   "commitlint": {
@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@koa/router": "^12.0.0",
+    "dotenv": "^16.0.3",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0"
   }
